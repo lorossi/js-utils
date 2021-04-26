@@ -55,4 +55,14 @@ const is_mobile = () => {
 
 const get_css_var = (property) => {
   return getComputedStyle(document.documentElement).getPropertyValue(property).split(" ").join("");
-}
+};
+
+const xy_from_index = (i, width) => {
+  const x = i % width;
+  const y = parseInt(i / width);
+  return { x: x, y: y };
+};
+
+const index_from_xy = (x, y, width) => {
+  return x + width * y;
+};
