@@ -17,7 +17,7 @@ const random_interval = (average, interval) => {
 };
 
 const random_from_array = (arr) => {
-  return arr[random_int(arr.length) - 1];
+  return arr[random_int(arr.length - 1)];
 };
 
 const shuffle_array = (arr) => {
