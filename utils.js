@@ -20,6 +20,29 @@ const random_from_array = arr => {
   return arr[random_int(arr.length - 1)];
 };
 
+
+const random_normal = (min = 0, max = 1, skew = 0) => {
+  // Box–Muller transform;
+  let u, v;
+  u = 0;
+  v = 0;
+
+  while (u == 0) u = Math.random(); //Converting [0,1) to (0,1)
+  while (v == 0) v = Math.random();
+  let num;
+  num = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+
+  num = num / 10.0 + 0.5; // Translate to 0 -> 1
+  if (num > 1 || num < 0) {
+    num = randn_bm(min, max, skew);// resample between 0 and 1 if out of range
+  } else {
+    num = Math.pow(num, skew); // Skew
+    num *= max - min; // Stretch to fill range
+    num += min; // offset to min
+  }
+  return num;
+};
+
 const shuffle_array = arr => {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
