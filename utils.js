@@ -16,11 +16,11 @@ const random_interval = (average, interval) => {
   return random(average - interval, average + interval);
 };
 
-const random_from_array = (arr) => {
+const random_from_array = arr => {
   return arr[random_int(arr.length - 1)];
 };
 
-const shuffle_array = (arr) => {
+const shuffle_array = arr => {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -36,7 +36,7 @@ const distSq = (x1, y1, x2, y2) => {
 };
 
 const dist = (x1, y1, x2, y2) => {
-  return Math.sqrt(distSq(x1, y1, x2, y1));
+  return Math.sqrt(distSq(x1, y1, x2, y2));
 };
 
 const constrain = (x, min_val = 0, max_val = 1) => {
@@ -53,7 +53,7 @@ const is_mobile = () => {
   return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 };
 
-const get_css_var = (property) => {
+const get_css_var = property => {
   return getComputedStyle(document.documentElement).getPropertyValue(property).split(" ").join("");
 };
 
