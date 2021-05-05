@@ -10,9 +10,7 @@ const random_int = (a, b) => {
   else if (a != undefined && b != undefined) return Math.floor(Math.random() * (b - a + 1)) + a;
 };
 
-const random_interval = (average, interval) => {
-  average = average || 0.5;
-  interval = interval || 0.5;
+const random_interval = (average = 0, interval = 1) => {
   return random(average - interval, average + interval);
 };
 
