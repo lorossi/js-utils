@@ -32,7 +32,7 @@ const random_normal = (min = 0, max = 1, skew = 0) => {
 
   num = num / 10.0 + 0.5; // Translate to 0 -> 1
   if (num > 1 || num < 0) {
-    num = randn_bm(min, max, skew);// resample between 0 and 1 if out of range
+    num = random_normal(min, max, skew);// resample between 0 and 1 if out of range
   } else {
     num = Math.pow(num, skew); // Skew
     num *= max - min; // Stretch to fill range
