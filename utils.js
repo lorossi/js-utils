@@ -7,7 +7,7 @@ const random = (a, b) => {
 const random_int = (a, b) => {
   if (a == undefined && b == undefined) return random_int(0, 1);
   else if (b == undefined) return random_int(0, a);
-  else if (a != undefined && b != undefined) return Math.floor(Math.random() * (b - a + 1)) + a;
+  else if (a != undefined && b != undefined) return Math.floor(Math.random() * (b - a)) + a;
 };
 
 const random_interval = (average = 0, interval = 1) => {
@@ -17,7 +17,6 @@ const random_interval = (average = 0, interval = 1) => {
 const random_from_array = arr => {
   return arr[random_int(arr.length - 1)];
 };
-
 
 const random_normal = (min = 0, max = 1, skew = 0) => {
   // Box–Muller transform;
