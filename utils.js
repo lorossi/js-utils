@@ -15,7 +15,7 @@ const random_interval = (average = 0, interval = 1) => {
 };
 
 const random_from_array = arr => {
-  return arr[random_int(arr.length - 1)];
+  return arr[random_int(arr.length)];
 };
 
 const random_normal = (min = 0, max = 1, skew = 0) => {
