@@ -10,9 +10,10 @@ const random_int = (a, b) => {
   else if (a != undefined && b != undefined) return Math.floor(Math.random() * (b - a)) + a;
 };
 
-const random_interval = (average = 0, interval = 1) => {
+const random_interval = (average = 0.5, interval = 0.5) => {
   return random(average - interval, average + interval);
 };
+
 
 const random_from_array = arr => {
   return arr[random_int(arr.length)];
@@ -86,3 +87,5 @@ const xy_from_index = (i, width) => {
 const index_from_xy = (x, y, width) => {
   return x + width * y;
 };
+
+const clamp = (val, min, max) => Math.min(Math.max(min, val), max);
