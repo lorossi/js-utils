@@ -169,7 +169,7 @@ const wrap = (value, min_val = 0, max_val = 1) => {
  */
 const clamp = (value, min = 0, max = 1) => {
   return Math.min(Math.max(min, value), max);
-}
+};
 
 /**
  * Returns true if the function is called by a mobile browser
@@ -227,4 +227,4 @@ const xy_from_index = (i, width) => {
  */
 const index_from_xy = (x, y, width) => {
   return x + width * y;
-}
+};
