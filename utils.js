@@ -228,3 +228,31 @@ const xy_from_index = (i, width) => {
 const index_from_xy = (x, y, width) => {
   return x + width * y;
 };
+
+/**
+ * Returns the hexadecimal conversion of a decimal number
+ * 
+ * @param {number} dec the base 10 number
+ * @param {number} [padding=0] digits of zero padding in front of the hex number
+ * @param {boolean} [prefix=false] if true, 0x gets added in front of the hex number
+ * @param {boolean} [round=true] if true, the number gets rounded before conversion
+ * @returns {number}
+ * 
+ * @example
+ * dec_to_hex(232);
+ * // returns "E8"
+ *  
+ * @example
+ * dec_to_hex(12, 2);
+ * // returns "0C"
+ * 
+ * @example
+ * dec_to_hex(14, 2, true);
+ * // returns "0x0E"
+ */
+const dec_to_hex = (dec, padding = 0, prefix = false, round = true) => {
+  if (round) dec = Math.floor(dec);
+  let hex = dec.toString(16).padStart(padding, 0).toUpperCase();
+  if (prefix) hex = "0x" + hex;
+  return hex;
+};
