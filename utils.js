@@ -72,7 +72,7 @@ const random_normal = (min = 0, max = 1, skew = 0) => {
 };
 
 /**
- * Return a random item from the provided array
+ * Returns a random item from the provided array
  * 
  * @param {Array} a an array
  * @returns {any} item from input array
