@@ -256,3 +256,42 @@ const dec_to_hex = (dec, padding = 0, prefix = false, round = true) => {
   if (prefix) hex = "0x" + hex;
   return hex;
 };
+
+/**
+ * Returns the decimal conversion of a hexadecimal number
+ *
+ * @param {number} hex the base 16 number
+ * @returns {number}
+ *
+ * @example
+ * hex_to_dec("E8");
+ * // => 232
+ * @example
+ * hex_to_dec("0xF6");
+ * // => 246
+  * @example
+ * hex_to_dec("64h");
+ *  100
+ */
+const hex_to_dec = (hex) => parseInt(hex, 16);
+
+/**
+ * Shuffles and returns a string
+ * 
+ * @param {String} string the string to be shuffled 
+ * @returns {String}
+ */
+const shuffle_string = (string) => string.split("").sort((_, __) => Math.random() * 2 - 1).join("");
+
+/**
+ * Generates a random alphanumeric string of set length
+ * 
+ * @param {number} len length of the random string
+ * @returns {String}
+ */
+const random_string = (len) => {
+  let result = "";
+  let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");
+  for (let i = 0; i < len; i++) result += random_from_array(characters);
+  return result;
+};
