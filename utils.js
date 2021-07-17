@@ -131,7 +131,7 @@ const dist = (x1, y1, x2, y2) => {
  * 
  * @example
  * map(192, 0, 255, 1024, 2048);
- * // returns 1795.0117647058823
+ * // => 1795.0117647058823
  */
 const map = (value, old_min, old_max, new_min, new_max) => {
   return (value - old_min) * (new_max - new_min) / (old_max - old_min) + new_min;
@@ -147,7 +147,7 @@ const map = (value, old_min, old_max, new_min, new_max) => {
  * 
  * @example
  * wrap(65, 0, 60);
- * // returns 5
+ * // => 5
  */
 const wrap = (value, min_val = 0, max_val = 1) => {
   while (value > max_val) value -= max_val - min_val;
@@ -165,7 +165,7 @@ const wrap = (value, min_val = 0, max_val = 1) => {
  * 
  * @example
  * clamp(-5, -3, 10);
- * // returns -3
+ * // => -3
  */
 const clamp = (value, min = 0, max = 1) => {
   return Math.min(Math.max(min, value), max);
@@ -205,7 +205,7 @@ const get_css_var = property => {
  * 
  * @example
  * xy_from_index(25, 10);
- * // returns {x: 5, y: 2}
+ * // => {x: 5, y: 2}
  */
 const xy_from_index = (i, width) => {
   const x = i % width;
@@ -223,7 +223,7 @@ const xy_from_index = (i, width) => {
  * 
  * @example
  * index_from_xy(7, 4, 12);
- * // returns 55
+ * // => 55
  */
 const index_from_xy = (x, y, width) => {
   return x + width * y;
@@ -240,15 +240,15 @@ const index_from_xy = (x, y, width) => {
  * 
  * @example
  * dec_to_hex(232);
- * // returns "E8"
+ * // => "E8"
  *  
  * @example
  * dec_to_hex(12, 2);
- * // returns "0C"
+ * // => "0C"
  * 
  * @example
  * dec_to_hex(14, 2, true);
- * // returns "0x0E"
+ * // => "0x0E"
  */
 const dec_to_hex = (dec, padding = 0, prefix = false, round = true) => {
   if (round) dec = Math.floor(dec);

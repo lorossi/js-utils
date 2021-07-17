@@ -159,7 +159,7 @@ const dist = (x1, y1, x2, y2) => {
  * 
  * @example
  * map(192, 0, 255, 1024, 2048);
- * // returns 1795.0117647058823
+ * // => 1795.0117647058823
  */
 const map = (value, old_min, old_max, new_min, new_max) => {
   return (value - old_min) * (new_max - new_min) / (old_max - old_min) + new_min;
@@ -175,7 +175,7 @@ const map = (value, old_min, old_max, new_min, new_max) => {
  * 
  * @example
  * wrap(65, 0, 60);
- * // returns 5
+ * // => 5
  */
 const wrap = (value, min_val = 0, max_val = 1) => {
   while (value > max_val) value -= max_val - min_val;
@@ -193,7 +193,7 @@ const wrap = (value, min_val = 0, max_val = 1) => {
  * 
  * @example
  * clamp(-5, -3, 10);
- * // returns -3
+ * // => -3
  */
 const clamp = (value, min = 0, max = 1) => {
   return Math.min(Math.max(min, value), max);
@@ -233,7 +233,7 @@ const get_css_var = property => {
  * 
  * @example
  * xy_from_index(25, 10);
- * // returns {x: 5, y: 2}
+ * // => {x: 5, y: 2}
  */
 const xy_from_index = (i, width) => {
   const x = i % width;
@@ -251,7 +251,7 @@ const xy_from_index = (i, width) => {
  * 
  * @example
  * index_from_xy(7, 4, 12);
- * // returns 55
+ * // => 55
  */
 const index_from_xy = (x, y, width) => {
   return x + width * y;
@@ -268,21 +268,60 @@ const index_from_xy = (x, y, width) => {
  * 
  * @example
  * dec_to_hex(232);
- * // returns "E8"
+ * // => "E8"
  *  
  * @example
  * dec_to_hex(12, 2);
- * // returns "0C"
+ * // => "0C"
  * 
  * @example
  * dec_to_hex(14, 2, true);
- * // returns "0x0E"
+ * // => "0x0E"
  */
 const dec_to_hex = (dec, padding = 0, prefix = false, round = true) => {
   if (round) dec = Math.floor(dec);
   let hex = dec.toString(16).padStart(padding, 0).toUpperCase();
   if (prefix) hex = "0x" + hex;
   return hex;
+};
+
+/**
+ * Returns the decimal conversion of a hexadecimal number
+ *
+ * @param {number} hex the base 16 number
+ * @returns {number}
+ *
+ * @example
+ * hex_to_dec("E8");
+ * // => 232
+ * @example
+ * hex_to_dec("0xF6");
+ * // => 246
+  * @example
+ * hex_to_dec("64h");
+ *  100
+ */
+const hex_to_dec = (hex) => parseInt(hex, 16);
+
+/**
+ * Shuffles and returns a string
+ * 
+ * @param {String} string the string to be shuffled 
+ * @returns {String}
+ */
+const shuffle_string = (string) => string.split("").sort((_, __) => Math.random() * 2 - 1).join("");
+
+/**
+ * Generates a random alphanumeric string of set length
+ * 
+ * @param {number} len length of the random string
+ * @returns {String}
+ */
+const random_string = (len) => {
+  let result = "";
+  let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");
+  for (let i = 0; i &lt; len; i++) result += random_from_array(characters);
+  return result;
 };</code></pre>
         </article>
     </section>
@@ -293,13 +332,13 @@ const dec_to_hex = (dec, padding = 0, prefix = false, round = true) => {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#clamp">clamp</a></li><li><a href="global.html#dec_to_hex">dec_to_hex</a></li><li><a href="global.html#dist">dist</a></li><li><a href="global.html#dist_sq">dist_sq</a></li><li><a href="global.html#get_css_var">get_css_var</a></li><li><a href="global.html#index_from_xy">index_from_xy</a></li><li><a href="global.html#is_mobile">is_mobile</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#random">random</a></li><li><a href="global.html#random_from_array">random_from_array</a></li><li><a href="global.html#random_int">random_int</a></li><li><a href="global.html#random_interval">random_interval</a></li><li><a href="global.html#random_normal">random_normal</a></li><li><a href="global.html#shuffle_array">shuffle_array</a></li><li><a href="global.html#wrap">wrap</a></li><li><a href="global.html#xy_from_index">xy_from_index</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#clamp">clamp</a></li><li><a href="global.html#dec_to_hex">dec_to_hex</a></li><li><a href="global.html#dist">dist</a></li><li><a href="global.html#dist_sq">dist_sq</a></li><li><a href="global.html#get_css_var">get_css_var</a></li><li><a href="global.html#hex_to_dec">hex_to_dec</a></li><li><a href="global.html#index_from_xy">index_from_xy</a></li><li><a href="global.html#is_mobile">is_mobile</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#random">random</a></li><li><a href="global.html#random_from_array">random_from_array</a></li><li><a href="global.html#random_int">random_int</a></li><li><a href="global.html#random_interval">random_interval</a></li><li><a href="global.html#random_normal">random_normal</a></li><li><a href="global.html#random_string">random_string</a></li><li><a href="global.html#shuffle_array">shuffle_array</a></li><li><a href="global.html#shuffle_string">shuffle_string</a></li><li><a href="global.html#wrap">wrap</a></li><li><a href="global.html#xy_from_index">xy_from_index</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Mon Jul 12 2021 20:44:01 GMT+0200 (Central European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sat Jul 17 2021 20:11:20 GMT+0200 (Central European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>

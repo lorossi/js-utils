@@ -349,7 +349,7 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>clamp(-5, -3, 10);
-// returns -3</code></pre>
+// => -3</code></pre>
 
 
 
@@ -643,14 +643,14 @@
     <h5>Examples</h5>
     
     <pre class="prettyprint"><code>dec_to_hex(232);
-// returns "E8"
+// => "E8"
  </code></pre>
 
     <pre class="prettyprint"><code>dec_to_hex(12, 2);
-// returns "0C"</code></pre>
+// => "0C"</code></pre>
 
     <pre class="prettyprint"><code>dec_to_hex(14, 2, true);
-// returns "0x0E"</code></pre>
+// => "0x0E"</code></pre>
 
 
 
@@ -1275,6 +1275,173 @@
     
 
     
+    <h4 class="name" id="hex_to_dec"><span class="type-signature"></span>hex_to_dec<span class="signature">(hex)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns the decimal conversion of a hexadecimal number
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>hex</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the base 16 number</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utils.js.html">utils.js</a>, <a href="utils.js.html#line276">line 276</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>hex_to_dec("E8");
+// => 232</code></pre>
+
+    <pre class="prettyprint"><code>hex_to_dec("0xF6");
+// => 246</code></pre>
+
+    <pre class="prettyprint"><code>hex_to_dec("64h");
+ 100</code></pre>
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="index_from_xy"><span class="type-signature"></span>index_from_xy<span class="signature">(x, y, width)</span><span class="type-signature"> &rarr; {number}</span></h4>
     
 
@@ -1472,7 +1639,7 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>index_from_xy(7, 4, 12);
-// returns 55</code></pre>
+// => 55</code></pre>
 
 
 
@@ -1835,7 +2002,7 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>map(192, 0, 255, 1024, 2048);
-// returns 1795.0117647058823</code></pre>
+// => 1795.0117647058823</code></pre>
 
 
 
@@ -2893,6 +3060,161 @@ If no parameters are passed, the random number will be generated in range [0, 1]
     
 
     
+    <h4 class="name" id="random_string"><span class="type-signature"></span>random_string<span class="signature">(len)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Generates a random alphanumeric string of set length
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>len</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">length of the random string</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utils.js.html">utils.js</a>, <a href="utils.js.html#line292">line 292</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="shuffle_array"><span class="type-signature"></span>shuffle_array<span class="signature">(a)</span><span class="type-signature"></span></h4>
     
 
@@ -3019,6 +3341,161 @@ If no parameters are passed, the random number will be generated in range [0, 1]
 
 
 
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="shuffle_string"><span class="type-signature"></span>shuffle_string<span class="signature">(string)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Shuffles and returns a string
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>string</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the string to be shuffled</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utils.js.html">utils.js</a>, <a href="utils.js.html#line284">line 284</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -3275,7 +3752,7 @@ If no parameters are passed, the random number will be generated in range [0, 1]
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>wrap(65, 0, 60);
-// returns 5</code></pre>
+// => 5</code></pre>
 
 
 
@@ -3459,7 +3936,7 @@ If no parameters are passed, the random number will be generated in range [0, 1]
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>xy_from_index(25, 10);
-// returns {x: 5, y: 2}</code></pre>
+// => {x: 5, y: 2}</code></pre>
 
 
 
@@ -3626,13 +4103,13 @@ If no parameters are passed, the random number will be generated in range [0, 1]
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#clamp">clamp</a></li><li><a href="global.html#dec_to_hex">dec_to_hex</a></li><li><a href="global.html#dist">dist</a></li><li><a href="global.html#dist_sq">dist_sq</a></li><li><a href="global.html#get_css_var">get_css_var</a></li><li><a href="global.html#index_from_xy">index_from_xy</a></li><li><a href="global.html#is_mobile">is_mobile</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#random">random</a></li><li><a href="global.html#random_from_array">random_from_array</a></li><li><a href="global.html#random_int">random_int</a></li><li><a href="global.html#random_interval">random_interval</a></li><li><a href="global.html#random_normal">random_normal</a></li><li><a href="global.html#shuffle_array">shuffle_array</a></li><li><a href="global.html#wrap">wrap</a></li><li><a href="global.html#xy_from_index">xy_from_index</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#clamp">clamp</a></li><li><a href="global.html#dec_to_hex">dec_to_hex</a></li><li><a href="global.html#dist">dist</a></li><li><a href="global.html#dist_sq">dist_sq</a></li><li><a href="global.html#get_css_var">get_css_var</a></li><li><a href="global.html#hex_to_dec">hex_to_dec</a></li><li><a href="global.html#index_from_xy">index_from_xy</a></li><li><a href="global.html#is_mobile">is_mobile</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#random">random</a></li><li><a href="global.html#random_from_array">random_from_array</a></li><li><a href="global.html#random_int">random_int</a></li><li><a href="global.html#random_interval">random_interval</a></li><li><a href="global.html#random_normal">random_normal</a></li><li><a href="global.html#random_string">random_string</a></li><li><a href="global.html#shuffle_array">shuffle_array</a></li><li><a href="global.html#shuffle_string">shuffle_string</a></li><li><a href="global.html#wrap">wrap</a></li><li><a href="global.html#xy_from_index">xy_from_index</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Mon Jul 12 2021 20:44:01 GMT+0200 (Central European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sat Jul 17 2021 20:11:20 GMT+0200 (Central European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>
