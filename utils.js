@@ -8,9 +8,14 @@
  * @returns {Number} random number
  */
 const random = (a, b) => {
-  if (a == undefined && b == undefined) return random(0, 1);
-  else if (b == undefined) return random(0, a);
-  else if (a != undefined && b != undefined) return Math.random() * (b - a) + a;
+  if (a == undefined && b == undefined) {
+    a = 0;
+    b = 1;
+  } else if (b == undefined) {
+    b = a;
+    a = 0;
+  }
+  return Math.random() * (b - a) + a;
 };
 
 /**
@@ -23,10 +28,15 @@ const random = (a, b) => {
  * @returns {Number} random number
  */
 const random_int = (a, b) => {
-  if (a == undefined && b == undefined) return random_int(0, 2);
-  else if (b == undefined) return random_int(0, a);
-  else if (a != undefined && b != undefined)
-    return Math.floor(Math.random() * (b - a)) + a;
+  if (a == undefined && b == undefined) {
+    a = 0;
+    b = 2;
+  } else if (b == undefined) {
+    b = a;
+    a = 0;
+  }
+
+  return Math.floor(Math.random() * (b - a)) + a;
 };
 
 /**
@@ -39,7 +49,7 @@ const random_int = (a, b) => {
  * @returns {Number} random number
  */
 const random_interval = (average = 0.5, interval = 0.5) => {
-  return random(average - interval, average + interval);
+  return Math.random() * (interval * 2) + (average - interval);
 };
 
 /**
@@ -79,19 +89,18 @@ const random_normal = (min = 0, max = 1, skew = 0) => {
  * @returns {any} item from input array
  */
 const random_from_array = (a) => {
-  return a[random_int(a.length)];
+  return a[Math.floor(Math.random() * a.length)];
 };
 
 /**
- * Shuffles the provided array without returning it (the original array gets shuffled)
+ * Shuffles the provided array in place (the original array gets shuffled)
  *
  * @param {Array} a an array
  */
 const shuffle_array = (a) => {
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
+  a.map((x) => ({ val: x, order: Math.random() }))
+    .sort((a, b) => a.order - b.order)
+    .map((x) => x.val);
 };
 
 /**
@@ -105,6 +114,19 @@ const shuffle_array = (a) => {
  */
 const dist_sq = (x1, y1, x2, y2) => {
   return Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2);
+};
+
+/**
+ * Returns the manhattan distance between two coordinates
+ *
+ * @param {Number} x1
+ * @param {Number} y1
+ * @param {Number} x2
+ * @param {Number} y2
+ * @returns {Number} manhattan distance between the coordinates
+ */
+const manhattan_dist = (x1, y1, x2, y2) => {
+  return Math.abs(x1 - x2) + Math.abs(y1 - y2);
 };
 
 /**
@@ -292,7 +314,9 @@ const hex_to_dec = (hex) => parseInt(hex, 16);
 const shuffle_string = (string) =>
   string
     .split("")
-    .sort((_, __) => Math.random() * 2 - 1)
+    .map((s) => ({ val: s, order: Math.random() }))
+    .sort((a, b) => a.order - b.order)
+    .map((s) => s.val)
     .join("");
 
 /**
@@ -307,4 +331,38 @@ const random_string = (len) => {
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");
   for (let i = 0; i < len; i++) result += random_from_array(characters);
   return result;
+};
+
+/**
+ * In and out polynomial easing
+ *
+ * @param {Number} x in range [0, 1]
+ * @param {Number} n degree of the polynomial
+ * @returns x smoothed
+ */
+const poly_ease_inout = (x, n) => {
+  return x < 0.5
+    ? Math.pow(2, n - 1) * Math.pow(x, n)
+    : 1 - Math.pow(-2 * x + 2, n) / 2;
+};
+/**
+ * In polynomial easing
+ *
+ * @param {Number} x in range [0, 1]
+ * @param {Number} n degree of the polynomial
+ * @returns x smoothed
+ */
+const poly_ease_in = (x, n) => {
+  return Math.pow(2, n - 1) * Math.pow(x, n);
+};
+
+/**
+ * Out polynomial easing
+ *
+ * @param {Number} x in range [0, 1]
+ * @param {Number} n degree of the polynomial
+ * @returns x smoothed
+ */
+const poly_ease_out = (x, n) => {
+  return 1 - Math.pow(-2 * x + 2, n) / 2;
 };
