@@ -6,4 +6,4 @@ Small collection of useful Javascript/ECMAscript snippets that I constantly need
 
 ## Credits
 
-This project is distributed under Attribution 4.0 International (CC BY 4.0) license.
+This project is distributed under MIT license.
