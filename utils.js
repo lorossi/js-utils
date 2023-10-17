@@ -15,6 +15,7 @@ const random = (a, b) => {
     b = a;
     a = 0;
   }
+
   return Math.random() * (b - a) + a;
 };
 
@@ -221,12 +222,6 @@ const get_css_var = (property) => {
 };
 
 /**
- * @typedef {Object} Point
- * @property {Number} x - x coordinate of the point
- * @property {Number} y - y coordinate of the point
- */
-
-/**
  * Returns the (x, y) coordinates of a 1D data structure treated as a 2D structure (a grid)
  *
  * @param {Number} i index of the item
@@ -337,32 +332,31 @@ const random_string = (len) => {
  * In and out polynomial easing
  *
  * @param {Number} x in range [0, 1]
- * @param {Number} n degree of the polynomial
+ * @param {Number} [n=2] degree of the polynomial
  * @returns x smoothed
  */
-const poly_ease_inout = (x, n) => {
-  return x < 0.5
-    ? Math.pow(2, n - 1) * Math.pow(x, n)
-    : 1 - Math.pow(-2 * x + 2, n) / 2;
+const poly_ease_inout = (x, n = 2) => {
+  if (x < 0.5) return x ** n * 2 ** (n - 1);
+  return 1 - (-2 * x + 2) ** n / 2 ** (n - 1);
 };
 /**
  * In polynomial easing
  *
  * @param {Number} x in range [0, 1]
- * @param {Number} n degree of the polynomial
+ * @param {Number} [n=2] degree of the polynomial
  * @returns x smoothed
  */
-const poly_ease_in = (x, n) => {
-  return Math.pow(2, n - 1) * Math.pow(x, n);
+const poly_ease_in = (x, n = 2) => {
+  return x ** n;
 };
 
 /**
  * Out polynomial easing
  *
  * @param {Number} x in range [0, 1]
- * @param {Number} n degree of the polynomial
+ * @param {Number} [n=2] degree of the polynomial
  * @returns x smoothed
  */
-const poly_ease_out = (x, n) => {
-  return 1 - Math.pow(-2 * x + 2, n) / 2;
+const poly_ease_out = (x, n = 2) => {
+  return 1 - (1 - x) ** n;
 };
